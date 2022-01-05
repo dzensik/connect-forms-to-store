@@ -1,0 +1,45 @@
+<div class="container">
+  <h1>New Story</h1>
+  <form
+    [formGroup]="newStory"
+    (submit)="submit()"
+    (success)="onSuccess()"
+    (error)="onError($event)"
+    connectForm="newStory"
+  >
+    <div class="form-group">
+      <input
+        type="text"
+        formControlName="title"
+        class="form-control"
+        placeholder="Title"
+      />
+    </div>
+
+    <div class="form-group">
+      <textarea
+        formControlName="description"
+        placeholder="Story.."
+        cols="10"
+        rows="3"
+        class="form-control"
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <input type="checkbox" formControlName="draft" /> Draft
+    </div>
+
+    <select formControlName="category">
+      <option *ngFor="let option of options" [ngValue]="option.id">
+        {{ option.label }}
+      </option>
+    </select>
+
+    <button [disabled]="newStory.invalid" class="btn btn-primary" type="submit">
+      Submit
+    </button>
+  </form>
+  <div class="alert alert-success" *ngIf="success">Success!</div>
+  <div class="alert alert-danger" *ngIf="error">{{ error }}</div>
+</div>
