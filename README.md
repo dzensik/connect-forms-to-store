@@ -1,6 +1,8 @@
 # StoryApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.4.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.4. and bases on the approach to Connect Angular Forms to @ngrx/store from [Netanel Basal](https://netbasal.medium.com) described in his blog article [Connect Angular Forms to @ngrx/store](https://netbasal.com/connect-angular-forms-to-ngrx-store-c495d17e129). The data in the form is pushed for every user input into the store. And is populated in the form after that by component init.
+
+I decided to publish this demo because firstly the code in the blog article and his code in gist is from 2017 and not compatible with Angular 12. Secondly I found the article itself and the code in gist not very helpful for me as an Angular beginner.
 
 ## Development server
 
@@ -16,11 +18,11 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Not tests
 
 ## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+No tests
 
 ## Further help
 
