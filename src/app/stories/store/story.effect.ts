@@ -1,26 +1,25 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { StoryService } from '../story-component/story.service';
+import { StoryService } from '../add-story/add-story.service';
 import { catchError, map, switchMap } from 'rxjs/operators';
-import { addStory } from './story.actions';
+import { addStoryAction } from './story.actions';
 import {
   formErrorAction,
-  formSuccessAction,
-} from '../directives/connect-form.actions';
+  formSubmitSuccessAction,
+} from '../../directives/connect-form.actions';
 
 @Injectable()
 export class StoryEffects {
   constructor(private storyService: StoryService, private actions$: Actions) {}
 
   addStory$ = createEffect(() => {
-    console.log('createEffect add story');
     return this.actions$.pipe(
-      ofType(addStory),
+      ofType(addStoryAction),
       switchMap(() =>
         this.storyService.add().pipe(
-          map((response) =>
-            formSuccessAction({
+          map(() =>
+            formSubmitSuccessAction({
               payload: { path: 'newStory', confirmationRequires: false },
             })
           ),

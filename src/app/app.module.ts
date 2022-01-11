@@ -7,26 +7,22 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
-import { AddStoryFormComponent } from './story-component/add-story-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { StoryEffects } from './store/story.effect';
-import { ConnectFormDirective } from './story-component/connect-form.directive';
-import * as fromStory from './store/story.reducer';
+import { StoriesModule } from './stories/stories.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, AddStoryFormComponent, ConnectFormDirective],
+  declarations: [AppComponent, HomeComponent],
   imports: [
-    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forFeature(fromStory.storyFeatureKey, fromStory.reducer),
+    StoriesModule,
+    StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
     }),
-    EffectsModule.forFeature([StoryEffects]),
+    EffectsModule.forRoot([]),
   ],
-  exports: [ConnectFormDirective],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

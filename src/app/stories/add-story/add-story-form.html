@@ -1,7 +1,7 @@
 <div class="container">
   <h1>New Story</h1>
   <form
-    [formGroup]="newStory"
+    [formGroup]="addStory"
     (submit)="submit()"
     (success)="onSuccess()"
     (error)="onError($event)"
@@ -36,7 +36,7 @@
       </option>
     </select>
 
-    <button [disabled]="newStory.invalid" class="btn btn-primary" type="submit">
+    <button [disabled]="addStory.invalid" class="btn btn-primary" type="submit">
       Submit
     </button>
   </form>

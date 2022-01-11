@@ -8,7 +8,7 @@ import { StoryActions } from '../store/story.actions';
   templateUrl: './add-story-form.html',
 })
 export class AddStoryFormComponent {
-  public newStory!: FormGroup;
+  public addStory!: FormGroup;
   public success: Boolean = false;
   public error!: Error;
 
@@ -28,8 +28,7 @@ export class AddStoryFormComponent {
   }
 
   ngOnInit() {
-    console.log('call ngOnInit() in add-story-form.component');
-    this.newStory = new FormGroup({
+    this.addStory = new FormGroup({
       title: new FormControl(null, Validators.required),
       description: new FormControl(null, Validators.required),
       draft: new FormControl(false),
@@ -38,7 +37,6 @@ export class AddStoryFormComponent {
   }
 
   submit() {
-    console.log('Submit clicked');
     this.success = false;
     this.store.dispatch({
       type: StoryActions.AddStory,

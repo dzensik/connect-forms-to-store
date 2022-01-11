@@ -6,7 +6,7 @@ import { Observable, of } from 'rxjs';
 })
 export class StoryService {
   add(): Observable<boolean> {
-    console.log('Save the story on the server');
+    console.log('Mock save the story on the server');
     const obs$ = of(true);
     return obs$;
   }
